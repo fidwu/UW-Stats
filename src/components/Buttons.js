@@ -2,13 +2,6 @@ import React from 'react';
 import Pdf from "react-to-pdf";
 
 const Buttons = React.forwardRef((props, ref) => {
-  console.log(props.data);
-
-  const options = {
-    orientation: 'portrait',
-    unit: 'mm',
-    format: 'Letter'
-    };
 
   return (
     <div className="actions">
@@ -26,7 +19,8 @@ const Buttons = React.forwardRef((props, ref) => {
         Download Data
       </a>
         
-      <Pdf targetRef={props.targetRef} filename="uwisc-stats.pdf" options={options} scale={0.65}>
+      {/* pdf result depends on screen/browser size */}
+      <Pdf targetRef={props.targetRef} filename="uwisc-stats.pdf" scale={0.65}>
         {({ toPdf }) => <button onClick={toPdf}>Download as PDF</button>}
       </Pdf>
 

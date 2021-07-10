@@ -1,8 +1,7 @@
-import { PieChart, Pie, ResponsiveContainer, Legend, Tooltip, Cell } from "recharts";
+import { PieChart, Pie, ResponsiveContainer, Tooltip, Cell } from "recharts";
 
 const RaceEthnicityChart = (props) => {
   const program = props.data;
-  console.log(program);
 
   // Reformat data to create a doughnut chart
   const data = [];
@@ -14,41 +13,36 @@ const RaceEthnicityChart = (props) => {
     if (program[key] != null) {
       data.push({
         name: key,
-        value: +percentVal.toFixed(2),
+        value: +percentVal.toFixed(2)
       });
     }
   });
-
-  // data.sort((a, b) => a.value > b.value && 1 || -1);
-
-  console.log("new data: ", data);
 
   const colors = ["#c5050c", "#0479a8", "#ffbf00", "#737373"];
 
   if (program) {
     return (
-      <ResponsiveContainer width="95%" height={390}>
+      <ResponsiveContainer width="95%" height={340}>
         <PieChart>
           <Pie
             data={data}
-            innerRadius={80}
-            outerRadius={150}
+            innerRadius={70}
+            outerRadius={140}
             paddingAngle={3}
             dataKey="value"
-            label={(entry) => `${entry.name} ${entry.value}`}
+            label={(item) => `${item.name} ${item.value}`}
             isAnimationActive={false}
           >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+            {data.map((item, index) => (
+              <Cell key={index} fill={colors[index % colors.length]} />
             ))}
           </Pie>
           <Tooltip />
-          <Legend />
         </PieChart>
       </ResponsiveContainer>
     );
   } else {
-    return <div>No data in race and ethnicity to display</div>;
+    return <div>No race and ethnicity data to display</div>;
   }
 };
 

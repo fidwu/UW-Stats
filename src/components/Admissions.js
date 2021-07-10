@@ -12,7 +12,6 @@ import {
 
 const Admissions = (props) => {
   const program = props.data;
-  console.log(program);
 
   // Reformat data to create a bar chart
   const data = [];
@@ -29,7 +28,7 @@ const Admissions = (props) => {
   if (program) {
     return (
       <>
-      <ResponsiveContainer width="95%" height={300}>
+      <ResponsiveContainer width="75%" height={270}>
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="5 5" />
           <XAxis dataKey="name" />
@@ -45,7 +44,6 @@ const Admissions = (props) => {
           <Bar dataKey="math" fill="#ffbf00">
             <LabelList dataKey="math" position="top" />
           </Bar>
-          {/* #737373 #e8dfa7 */}
           <Bar dataKey="writing" fill="#737373">
             <LabelList dataKey="writing" position="top" />
           </Bar>
@@ -54,7 +52,7 @@ const Admissions = (props) => {
       </>
     );
   } else {
-    return <div>No data in program percentage to display</div>;
+    return <div>No ACT scores data to display</div>;
   }
 };
 

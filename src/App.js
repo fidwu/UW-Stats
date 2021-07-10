@@ -6,6 +6,7 @@ import RaceEthnicityChart from './components/RaceEthnicityChart';
 import SchoolInfo from './components/SchoolInfo';
 import Admissions from './components/Admissions';
 import Buttons from './components/Buttons';
+import ReactLoading from 'react-loading';
 
 const App = () => {
   
@@ -25,7 +26,6 @@ const App = () => {
         let data = res.data.results[0];
 
         const enrollment = data.latest.student.enrollment;
-        console.log(enrollment);
 
         // Get data for school information
         const school = {
@@ -61,15 +61,16 @@ const App = () => {
 
     }, [])
 
-    console.log(loading);
-    console.log(err);
-
   return (
     <div className="App" ref={ref}>
-      <h1>School Profile</h1>
-      { loading ? 
-        <div>Fetching the schools data...</div>
-        : !err ?
+      <h1 className="heading">School Profile</h1>
+      { loading ?
+      <>
+        <p>Fetching school data...</p>
+        <ReactLoading className="loading" color={'#808080'} type={'spinningBubbles'} height={'10%'} width={'10%'} />
+      </>
+      :
+      !err ?
         <>
           <Buttons data={{school, programPercentage, raceEthnicity, admissionsAct}} targetRef={ref} />
           <SchoolInfo data={school} />

@@ -8,6 +8,15 @@ body {
   min-height: 96vh;
 }
 
+.loading {
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: 'Roboto', sans-serif;
+  font-size: 38px;
+}
+
 .school {
   background-color: #f7f7f7;
   border-radius: 10px;
@@ -17,7 +26,6 @@ body {
   padding: 5px 10px;
   border: 1px solid white;
   box-shadow: 0px 7px 29px 0px #888888;
-  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
 }
 
 .school h2, .school p {
@@ -45,4 +53,8 @@ button, a.button {
   color: initial;
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover, a.button:hover {
+  background-color: #9AEAFF;
 }
