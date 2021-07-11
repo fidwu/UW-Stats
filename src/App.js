@@ -87,7 +87,7 @@ const App = () => {
             <Admissions data={admissionsAct} />
           </div>
         </>
-        : <div>Sorry, couldn't fetch the data :(</div>
+        : <div>Sorry, couldn't fetch the data</div>
       }
     </div>
   );
